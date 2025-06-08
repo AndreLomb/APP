@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APP</title>
+    <link rel="stylesheet" href="/Static/style.css">
+    <link rel="icon" href="/Static/capivara.jpg" type="/Static/image/png">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1><span class="gov">APP</span></h1>
+        <img src="/Static/capivara.jpg" alt="Logo" class="logo" />
+        <h2>(Arquivo Político Público)</h2>
+        <h3>Partidos, Membros da Câmara, Projetos em andamento... Tudo para sua pesquisa em um só lugar!</h3>
+
+        <input class="form-control form-rounded mb-3 mr-3" id="search-bar" placeholder="Digite o nome completo do candidato...">
+        <button id="search-button">Pesquisar</button>
+
+        <div id="results" class="results-container"></div>
+        <div class="loader" id="loader"></div>
+    </header>
+</div>
+
+<!-- Rodapé será inserido -->
+<div id="footer-container"></div>
+
+<script>
+//Função para carregar candidatos e processar o CSV
+async function carregarCandidatos() {
+    try {
+        const response = await fetch("/dados-candidatos");
+        const dados = await response.json();
+
+        const candidatos = {};
+        for (const cand of dados) {
+            if (cand.NM_URNA_CANDIDATO) {
+                candidatos[cand.NM_URNA_CANDIDATO] = cand;
+            }
+        }
+        return candidatos;
+    } catch (error) {
+        console.error("Erro ao carregar candidatos:", error);
+        return {};
+    }
+}
+
+
+// Carregar os candidatos quando a página for carregada
+let candidatos = {};
+
+document.addEventListener('DOMContentLoaded', async () => {
+    candidatos = await carregarCandidatos();
+    console.log("Candidatos carregados:", Object.keys(candidatos).length);
+});
+
+document.getElementById("search-button").addEventListener("click", async () => {
+    const nome = document.getElementById("search-bar").value.trim();
+    const loader = document.getElementById("loader");
+    const results = document.getElementById("results");
+    
+    loader.style.display = 'block';
+    results.innerHTML = '';
+    
+    try {
+        // Se ainda não carregou os candidatos, carregar agora
+        if (Object.keys(candidatos).length === 0) {
+            candidatos = await carregarCandidatos();
+        }
+        
+        if (nome && candidatos[nome]) {
+            localStorage.setItem("perfilCandidato", JSON.stringify(candidatos[nome]));
+            window.location.href = "perfil.html";
+        } else {
+            // Tentar encontrar correspondências parciais
+            const matches = Object.keys(candidatos).filter(key => 
+                key.toLowerCase().includes(nome.toLowerCase())
+            );
+            
+            if (matches.length > 0) {
+                results.innerHTML = `
+                    <p>Candidato exato não encontrado. Você quis dizer:</p>
+                    <ul>
+                        ${matches.slice(0, 5).map(name => 
+                            `<li style="cursor:pointer;color:blue;" onclick="document.getElementById('search-bar').value='${name}';this.parentNode.parentNode.innerHTML='';">${name}</li>`
+                        ).join('')}
+                    </ul>
+                `;
+            } else {
+                results.innerHTML = `<p>Candidato "${nome}" não encontrado.</p>`;
+            }
+        }
+    } catch (error) {
+        console.error("Erro na busca:", error);
+        results.innerHTML = `<p>Erro ao buscar candidato. Por favor, tente novamente.</p>`;
+    } finally {
+        loader.style.display = 'none';
+    }
+});
+</script>
+</body>
+</html>

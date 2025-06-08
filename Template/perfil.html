@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Perfil do Candidato</title>
+  <link rel="stylesheet" href="/Static/style.css">
+  <link rel="icon" href="/Static/capivaralogo.jpg" type="image/png">
+</head>
+<body>
+  <div class="perfil-container">
+    <div class="perfil-header">
+      <div id="foto-container" class="foto-placeholder">
+        <span>📷</span>
+      </div>
+      <div class="dados-principais">
+        <h2 id="nome-candidato"></h2>
+        <p><strong>Nome na Urna:</strong> <span id="nome-urna"></span></p>
+        <p><strong>Partido:</strong> <span id="partido"></span></p>
+        <p><strong>Cargo:</strong> <span id="cargo"></span></p>
+        <p><strong>Estado:</strong> <span id="estado"></span></p>
+        <p><strong>Situação:</strong> <span id="situacao"></span></p>
+      </div>
+    </div>
+
+    <div class="bloco">
+      <h3>Dados Pessoais</h3>
+      <div class="info-item"><span class="info-label">Nome Civil:</span><span class="info-value" id="nome-civil"></span></div>
+      <div class="info-item"><span class="info-label">Data Nascimento:</span><span class="info-value" id="nascimento"></span></div>
+      <div class="info-item"><span class="info-label">Idade:</span><span class="info-value" id="idade"></span></div>
+      <div class="info-item"><span class="info-label">Gênero:</span><span class="info-value" id="genero"></span></div>
+      <div class="info-item"><span class="info-label">Estado Civil:</span><span class="info-value" id="estado-civil"></span></div>
+      <div class="info-item"><span class="info-label">Raça/Cor:</span><span class="info-value" id="cor-raca"></span></div>
+      <div class="info-item"><span class="info-label">Grau de Instrução:</span><span class="info-value" id="grau-instrucao"></span></div>
+      <div class="info-item"><span class="info-label">Ocupação:</span><span class="info-value" id="ocupacao"></span></div>
+    </div>
+
+    <div class="bloco">
+      <h3>Dados Eleitorais</h3>
+      <div class="info-item"><span class="info-label">Número do Candidato:</span><span class="info-value" id="numero-candidato"></span></div>
+      <div class="info-item"><span class="info-label">Situação da Candidatura:</span><span class="info-value" id="situacao-candidatura"></span></div>
+      <div class="info-item"><span class="info-label">Tipo de Eleição:</span><span class="info-value" id="tipo-eleicao"></span></div>
+      <div class="info-item"><span class="info-label">Turno:</span><span class="info-value" id="turno"></span></div>
+      <div class="info-item"><span class="info-label">Federação/Coligação:</span><span class="info-value" id="federacao"></span></div>
+      <div class="info-item"><span class="info-label">Resultado:</span><span class="info-value" id="resultado-eleicao"></span></div>
+    </div>
+
+<div class="bloco" id="proposta-governo">
+  <h3>Proposta de Governo</h3>
+  <a id="link-proposta" class="btn-download" href="/Static/proposta/JAIR BOLSONARO.pdf" download>
+    📄 Baixar Proposta em PDF
+  </a>
+</div>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="/" class="btn-download">← Voltar para a Busca</a>
+    </div>
+  </div>
+
+  <script src="/Static/script.js"></script>
+</body>
+</html>
