@@ -117,7 +117,7 @@ header {
     justify-content: flex-start;
     align-items: center;
     margin-bottom: 30px;
-    margin-left: 0px;
+    margin-left: 500px;
 }
 
 header h1 {
@@ -161,7 +161,7 @@ header h2 {
 header h3 {
       position: absolute;
      top: 33%;
-  left: 14%;
+  left: 20%;
 }
 
 #search-bar {
