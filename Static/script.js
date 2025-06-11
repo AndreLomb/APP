@@ -116,6 +116,7 @@ if (window.location.pathname.includes("index.html") || window.location.pathname 
       console.error("Erro ao carregar candidatos:", err);
     }
   }
+  
 
   carregarCandidatos();
 
