@@ -78,19 +78,19 @@ body {
 }
 
 .btn-download {
-  display: inline-block;
-  padding: 10px 20px;
-  margin-top: 10px;
-  background-color: #007bff;
-  color: #fff;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
 }
 
 .btn-download:hover {
-  background-color: #0056b3;
+    background-color: #0056b3;
 }
 
 @keyframes animloader {
@@ -129,8 +129,8 @@ header h1 {
 
 header .logo{
     position: absolute;
-     top: 3%;
-  left: 53%;
+    top: 3%;
+    left: 53%;
     margin-bottom: -50px; /* Espaço entre a logo e o título */
     width: 135px; /* Tamanho da logo */
     height: auto; /* Mantém a proporção da imagem */
@@ -151,23 +151,23 @@ header .logo{
 }
 
 header h2 {
-     position: absolute;
-     top: 19%;
-  left: 33%;
+    position: absolute;
+    top: 19%;
+    left: 33%;
     font-size: 2em;
     color: #bccce0;
     text-align: center;
 }
 header h3 {
-      position: absolute;
-     top: 33%;
-  left: 20%;
+    position: absolute;
+    top: 33%;
+    left: 20%;
 }
 
 #search-bar {
-    
+
     margin-top: 85px;
-     transform: translateX(-0%); 
+    transform: translateX(-0%);
     width: 220%;
     max-width: 500px;
     padding: 23px;
@@ -214,18 +214,18 @@ p {
 }
 
 .gov {
-  position: absolute;
-  top: 14%;
-  left: 43%;
-  transform: translate(-50%, -50%);
-  color: #bccce0;
-  font-weight: bold;
-  text-align: center;
-  text-shadow:
-    3px 3px 6px rgba(0, 0, 0, 0.7),
-    -3px -3px 6px rgba(0, 0, 0, 0.7),
-    3px -3px 6px rgba(0, 0, 0, 0.7),
-    -3px 3px 6px rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 14%;
+    left: 43%;
+    transform: translate(-50%, -50%);
+    color: #bccce0;
+    font-weight: bold;
+    text-align: center;
+    text-shadow:
+            3px 3px 6px rgba(0, 0, 0, 0.7),
+            -3px -3px 6px rgba(0, 0, 0, 0.7),
+            3px -3px 6px rgba(0, 0, 0, 0.7),
+            -3px 3px 6px rgba(0, 0, 0, 0.7);
 }
 
 
@@ -281,12 +281,12 @@ p {
 }
 
 .erro-msg {
-  color: var(--text-light);
-  border: 2px solid var(--error-red);
-  padding: 15px;
-  border-radius: var(--border-radius);
-  background-color: rgba(94, 25, 20, 0.2);
-  font-weight: bold;
+    color: var(--text-light);
+    border: 2px solid var(--error-red);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    background-color: rgba(94, 25, 20, 0.2);
+    font-weight: bold;
 }
 
 .search-container {
@@ -299,111 +299,111 @@ p {
 
 /* ==== PERFIL DO CANDIDATO ==== */
 .perfil-container {
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 30px;
-  background-color: #1a1a1a;
-  border-radius: 15px;
-  color: #bccce0;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #1a1a1a;
+    border-radius: 15px;
+    color: #bccce0;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
 .perfil-container h1 {
-  text-align: center;
-  color: #c8d9f0;
-  font-size: 2.8rem;
-  margin-bottom: 30px;
+    text-align: center;
+    color: #c8d9f0;
+    font-size: 2.8rem;
+    margin-bottom: 30px;
 }
 
 .perfil-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 30px;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
-  justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .perfil-header img {
-  width: 180px;
-  height: 240px;
-  object-fit: cover;
-  border-radius: 10px;
-  border: 2px solid #bccce0;
-  background-color: #3b3e63;
+    width: 180px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #bccce0;
+    background-color: #3b3e63;
 }
 
 .dados-principais {
-  flex: 1;
-  min-width: 300px;
+    flex: 1;
+    min-width: 300px;
 }
 
 .dados-principais h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-  color: #ffffff;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #ffffff;
 }
 
 .dados-principais p {
-  margin: 4px 0;
-  font-size: 1.1rem;
-  color: #ff4d4d;
+    margin: 4px 0;
+    font-size: 1.1rem;
+    color: #ff4d4d;
 }
 
 .bloco {
-  background-color: #2a2a5a;
-  padding: 20px;
-  border-radius: 12px;
-  margin: 20px 0;
-  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+    background-color: #2a2a5a;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
 }
 
 .bloco h3 {
-  font-size: 1.5rem;
-  color: #ffffff;
-  margin-bottom: 12px;
-  border-bottom: 1px solid #bccce0;
-  padding-bottom: 5px;
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #bccce0;
+    padding-bottom: 5px;
 }
 
 .info-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 4px 0;
-  font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    font-size: 1rem;
 }
 
 .info-label {
-  font-weight: bold;
-  color: #bccce0;
-  min-width: 160px;
+    font-weight: bold;
+    color: #bccce0;
+    min-width: 160px;
 }
 
 .info-value {
-  color: #ffffff;
-  flex: 1;
-  text-align: right;
+    color: #ffffff;
+    flex: 1;
+    text-align: right;
 }
 
 .btn-download {
-  display: inline-block;
-  padding: 10px 20px;
-  margin-top: 10px;
-  background-color: #007bff;
-  color: #fff;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
 }
 
 .btn-download:hover {
-  background-color: #0056b3;
+    background-color: #0056b3;
 }
 
 .back-link {
-  display: block;
-  text-align: center;
-  margin-top: 30px;
+    display: block;
+    text-align: center;
+    margin-top: 30px;
 }
