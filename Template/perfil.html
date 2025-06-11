@@ -44,12 +44,12 @@
       <div class="info-item"><span class="info-label">Resultado:</span><span class="info-value" id="resultado-eleicao"></span></div>
     </div>
 
-<div class="bloco" id="proposta-governo">
-  <h3>Proposta de Governo</h3>
-  <a id="link-proposta" class="btn-download" href="/Static/proposta/JAIR BOLSONARO.pdf" download>
-    📄 Baixar Proposta em PDF
-  </a>
-</div>
+    <div class="bloco" id="proposta-governo">
+      <h3>Proposta de Governo</h3>
+      <a id="proposta" class="btn-download" href="/Static/proposta/" download>
+        📄 Baixar Proposta em PDF
+      </a>
+    </div>
 
     <div style="text-align: center; margin-top: 30px;">
       <a href="/" class="btn-download">← Voltar para a Busca</a>
@@ -57,5 +57,38 @@
   </div>
 
   <script src="/Static/script.js"></script>
+
+  <!-- Script adicionado -->
+  <script>
+    function carregarDadosDoCandidato(nome) {
+      fetch(`/govbuster?nome=${encodeURIComponent(nome)}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.erro || data.mensagem) {
+            document.getElementById("proposta").href = "#";
+            document.getElementById("proposta").innerText = "📄 Proposta não disponível";
+          } else {
+            const nomeArquivo = nome.toUpperCase();
+            document.getElementById("proposta").href = `/Static/proposta/${nomeArquivo}.pdf`;
+            document.getElementById("proposta").setAttribute("download", `${nomeArquivo}.pdf`);
+            document.getElementById("proposta").innerText = "📄 Baixar Proposta em PDF";
+          }
+        })
+        .catch(err => {
+          console.error("Erro ao buscar dados:", err);
+          document.getElementById("proposta").href = "#";
+          document.getElementById("proposta").innerText = "📄 Erro ao carregar proposta";
+        });
+    }
+
+    // Exemplo de chamada ao carregar a página com nome fixo (substitua conforme necessário)
+    window.onload = function () {
+      const params = new URLSearchParams(window.location.search);
+      const nome = params.get("nome");
+      if (nome) {
+        carregarDadosDoCandidato(nome);
+      }
+    };
+  </script>
 </body>
 </html>
