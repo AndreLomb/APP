@@ -12,7 +12,7 @@ app = Flask(__name__, template_folder='Template', static_folder='Static')
 config("IeyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNWVhYTcwYzc0MjYxNDBlZmI5MTQ2ZThlMjg2NDZlZDQzNzZmOGVmZjZhZjgwYTFlNmU5YWFjMjVhOWM0NDBjNDdjNDc1NWFhN2VkY2JhZDYiLCJpYXQiOjE3MzE3NzU0NDQuNDE3NzYyLCJuYmYiOjE3MzE3NzU0NDQuNDE3NzYzLCJleHAiOjIwNDczMDgyNDQuNDE1ODQxLCJzdWIiOiIyMDk2NzgyIiwic2NvcGVzIjpbImFjZXNzYXJfYXBpX3BhZ2EiXX0.qqz3MyDG_3opdd5ZeawVR6yQzysucN7aubQRQjG2c1v-2GrSFaIEwtxP_FqfTv6AEuHB9nmMAO7zp5MAKqiGrVkSXkiQ3kMd3xsnz5uU2ZgdYOcyLFwvQ-ESKAZ1n2_Bm8iAV_gvoTTBviYI1JE3AsqK-mRhJQ5viUEs523aYmw7C9NqpBbGa4s0k9WoRFtc8vYSNh4-ezw89GYyus53BHPyJ25KxnL3cPgAvlIuPR6MpGqKT_miPq_nbzCwP2cZBVR-GpAw712KmzHjS5zm-rpAyxdL7kDt7A74uhdBg-7roWnpc6bszgoTYJATQbE-Ak5VfY8HApMqwTyzgCe-N7Pedl2B-6nk0RW0MgFcnN7ptjn1Sl_l0SQTIMYhw5vnIxzjphdLx2XxKtRdcgIdrDTsIKBG-VI6ZkDmEC7LBtTHPkeRUYVzBx8HGZhpCxRegYnbGZyqy-TR_bXgHElU3TTzCI63H9_cz5sBDARSuOjWoBSMELyRxejwkxO0-JYUjSvVY0iuftDsz86sZyfmiy7v_oCGhrXIKBl8bVnBfg_rbTrWFwAcn2BIjaIUL-aECAG_8rfjz5sN1Sz2SngT8GumyyjBJ1IT6mTBQB8TQG-Eip-maSKb8p_-Vpfxbg2fg2Kkk7uXlCCtl1WHm_s_HGC6HsvPBdBYnxMufjLxz7I")
 
 # Caminho para os arquivos CSV dos candidatos
-pasta_csv = r"C:\Users\andre\OneDrive\Área de Trabalho\Programação\HTML\Static\consulta_cand_2022_BRASIL.csv"
+pasta_csv = r"C:\Users\Jaum\PycharmProjects\Fetin\data\consulta_cand_2022_BRASIL.csv"
 
 df_final = pd.read_csv(pasta_csv, encoding='latin1', delimiter=';')
 
@@ -48,15 +48,8 @@ def is_rate_limited(ip):
 
 # Buscar proposta
 def pegar_proposta(nome):
-    try:
-        doc = fitz.open(rf'Static/proposta/{nome}.pdf')
-        texto = ""
-        for pagina in doc:
-            texto += pagina.get_text()
-        doc.close()
-        return texto.strip()
-    except:
-        return "Proposta não disponível"
+    proposta_url = f"/Static/proposta/{nome}.pdf"
+    return proposta_url
 
 # Consultar processos
 def consultar_processos(nome):
@@ -125,13 +118,3 @@ def dados_candidatos():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-@app.route('/detalhes-candidato/<nome>')
-def detalhes_candidato(nome):
-    nome = nome.upper()
-    foto = f"/Static/img/{nome}.jpg"
-    proposta_url = f"/Static/proposta/{nome}.pdf"
-    return jsonify({
-        "foto": foto,
-        "proposta": proposta_url
-    })
